@@ -1,0 +1,10 @@
+﻿Flask==2.3.3
+openai==0.27.9
+pytube==15.0.0
+wheel
+gunicorn 
+Flask-OAuthlib==0.9.6
+moviepy==1.0.3
+ffmpeg-python==0.2.0
+auto-subtitle==1.0.1
+Pillow==9.5.0 

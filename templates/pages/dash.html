@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ViralizeIt</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+        }
+        h1{
+            width: 95%;
+            margin: auto;
+            text-align: left;
+            padding: 1em 1em 1em 0.2em;
+
+        }
+        .container{
+            background-color: #fff;
+            width: 90%;
+            margin: auto;
+            padding: 1em;
+            padding-bottom: 1.5em;
+            border-radius: 8px;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            margin: auto;
+            row-gap: 4px;
+        }
+        input{
+            padding: 1em;
+            outline: 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        input[type="submit"]{
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        label{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        *::selection{
+            background: rgba(0, 0, 0, 0.2);
+        }
+        ul{
+            padding-left: 4px;
+        }
+        li{
+            list-style: none;
+            margin: 0.5em 0;
+            background: #e1e1e1;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 17px;
+        }
+        li > a{
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+        .alert{
+            background: #c0e1c0;
+            padding: 4px;
+            text-align: center;
+            position: fixed;
+            top: 5px;
+            display: inline;
+            width: 30%;
+            right: 10px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 500ms ease-in-out;
+        }
+        .error{
+            background: #e1c0c0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    {% if msg %}
+    <div class="alert">
+        <p class="alert-text">{{msg}}</p>
+    </div>
+    {% endif %}
+    {% if error %}
+    <div class="alert error">
+        <p class="alert-text">{{error}}</p>
+    </div>
+    {% endif %}
+    <div class="container">
+        <form action="/" method="post" class="form" spellcheck="false">
+            <label for="url">Video URL</label>
+            <input type="url" name="vidLink" id="url" placeholder="Enter Video URL..." required>
+            <input type="submit" value="Shortify">
+        </form>
+        <div class="history">
+            {% if files %}
+            <h2>History</h2>
+            <ul>
+                {% for file in files %}
+                    <li>
+                        <a href="{{ file }}">{{ file | replace("/static/downloads/", "") }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        const alert = document.querySelector(".alert");
+        const error = document.querySelector(".error");
+        try {
+            alert.addEventListener("click", () => {
+            alert.style.display = "none";
+        });
+            error.addEventListener("click", () => {
+            error.style.display = "none";
+            });
+        } catch (error) {}
+
+    </script>
+</body>
+</html>
