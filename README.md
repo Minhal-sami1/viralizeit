@@ -1,6 +1,10 @@
-# viralizeit
+<div align="center">
 
-Welcome to **viralizeit**, your go-to tool for creating viral video shorts! This program empowers users to transform any YouTube link or local video file into engaging shorts by identifying potential viral segments. It utilizes advanced algorithms to extract subtitles, analyze video content, and generate shorts that are likely to capture attention.
+  # viralizeit
+
+Easily transform any YouTube video into multiple short clips.
+
+</div>
 
 ## 📂 Project Structure
 ```plaintext
@@ -32,6 +36,13 @@ Viralizeit/
 
 ### Output
 The shorts will be saved in a dedicated directory, each file named with start and end times of the trimmed segments.
+
+## 📠 Features 
+- Easy-to-use Ui
+- Automatically downloads videos
+- Extracts subtitles
+- Finds clips with high probability of being **viral**
+- Zips the resultant shorts
 
 ## 📝 Note
 Make sure the external command `auto_subtitle` (used for subtitle extraction) is installed on your system. It will be automatically installed when you do `pip install -r requirements.txt`
